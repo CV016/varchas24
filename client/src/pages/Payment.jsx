@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-// import Comingsoon from "../components/comingsoon";
+import Comingsoon from "../components/comingsoon";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
-
 const Payment = () => {
   const navigate = useNavigate();
   const [Data, setData] = useState("");
@@ -22,7 +19,7 @@ const Payment = () => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const configuration = {
       method: "get",
-      url: `${backendUrl}/payment`,
+      url: "https://api.varchas23.in/payment",
     };
     axios(configuration)
       .then((result) => {
@@ -44,7 +41,7 @@ const Payment = () => {
   }, []);
   return (
     <main className="relative w-screen h-fit sm:h-screen mx-auto sm:px-16 px-6 sm:py-16 py-10 max-w-7xl z-0 flex flex-col items-center justify-center">
-      <div className="text-yellow-400 text-[2.5rem] font-mono capitalize my-10">
+      <div className="text-emerald-500 text-[2.5rem] font-mono capitalize my-10">
         {Data}
       </div>
 

@@ -5,7 +5,6 @@ import axios from "axios";
 import VTeam from "./viewTeam";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function Profiles() {
   const [details, setDetails] = useState({});
@@ -17,7 +16,7 @@ export default function Profiles() {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     const configuration = {
       method: "get",
-      url: `${backendUrl}/account/displayProfile/`,
+      url: "http://127.0.0.1:8000/account/displayProfile/",
     };
     await axios(configuration)
       .then((result) => {
