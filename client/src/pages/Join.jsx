@@ -1,13 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import FormAction from "../components/formaction";
 import Input from "../components/input";
 import axios from "axios";
-// import Comingsoon from "../components/comingsoon";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
+import Comingsoon from "../components/comingsoon";
 
 const TeamJoin = () => {
   const navigate = useNavigate();
@@ -39,7 +37,7 @@ const TeamJoin = () => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const configuration = {
       method: "post",
-      url: `${backendUrl}/account/jointeam/`,
+      url: "https://api.varchas23.in/account/jointeam/",
       data: data_j,
     };
     axios(configuration)
